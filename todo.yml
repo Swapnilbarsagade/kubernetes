@@ -4,13 +4,13 @@ metadata:
   name: todo
 spec:
   containers:
-    - name: contodo
+    - name: contomcat
       image: swapnil0078/student:latest
       resources:
         requests:
           cpu: "50m"
           memory: "90Mi"
       ports:
-        - containerPort: 80
-          name: nginx
+        - containerPort: 8080
+          name: tomcat
           protocol: TCP
