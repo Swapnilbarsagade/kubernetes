@@ -1,10 +1,10 @@
 apiVersion: v1
 kind: Pod
 metadata: 
-      name: mypodtodo
+      name: todo
 spec:
     containers: 
-        - name: containertodo
+        - name: contodo
           image: swapnil0078/todoapp:latest
           resources: 
             requests:
