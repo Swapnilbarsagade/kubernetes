@@ -1,30 +1,16 @@
-apiVersion: v1  # acts as a manual to your system
+apiVersion: v1
 kind: Pod
-metadata:  # like a tag
-  name: mypod2
-spec:
-  containers:
-    - name: mypod-cont2
-      image: nginx:latest
-      resources: 
-        requests:
-          cpu: "50m"
-          memory: "90Mi"        
-      ports:  
-        - name: http
-          containerPort: 80
-          protocol: TCP
----
-apiVersion: v1 
-kind: Service
 metadata:
-  name: lb  # cluster 
+        name: nginxapp
 spec:
-  selector:
-    app: mypod2  
-  type: LoadBalancer 
-  ports:
-    - protocol: TCP
-      port: 80
-      targetPort: 80
-      name: nginx
+    containers:
+        - name: nginxcont
+          image: nginx:latest
+          resources:
+              requests:
+                  cpu: "10m"
+                  memory: "12Mi" 
+          ports:
+              - protocol: TCP
+                containerPort: 80
+                name: http
