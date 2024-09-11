@@ -1,0 +1,29 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: todo
+  # labels:
+  #   app.kubernetes.io/name: proxy
+spec:
+  containers:
+  - name: todo
+    image: swapnil0078/todoapp:latest
+    ports:
+      - containerPort: 80
+        name: 
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: todolb
+spec:
+  selector:
+    app: todo
+    # app.kubernetes.io/name: proxy
+  type: LoadBalancer
+  ports:
+  - name: todolb
+    protocol: TCP
+    port: 80
+    targetPort: 80
