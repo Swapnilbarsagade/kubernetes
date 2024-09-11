@@ -5,7 +5,7 @@ metadata:
 spec:
   containers:
     - name: contodo
-      image: swapnil0078/todoapp:latest
+      image: swapnil0078/student:latest
       resources:
         requests:
           cpu: "50m"
