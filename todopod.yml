@@ -25,15 +25,15 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: todolb
+  name: todoip
   namespace: microstatic
 
 spec:
-  type: LoadBalancer
+  type: ClusterIP
   selector:
     app: todo
   ports:
   - port: 80
-    targetPort: 80
-    name: todolb
+    # targetPort: 80
+    name: todoip
     protocol: TCP
