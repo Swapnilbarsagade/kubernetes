@@ -9,7 +9,7 @@ metadata:
 spec:
   containers:
   - name: studentlb
-    image: swapnil0078/student:latest
+    image: swapnil0078/student:micro
     resources: 
         requests:
             cpu: "50m"
