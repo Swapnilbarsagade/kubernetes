@@ -1,0 +1,39 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: employee
+  namespace: microstatic
+  labels:
+    app: employee
+
+spec:
+  containers:
+  - name: employee
+    image: swapnil0078/employee:micro
+    resources: 
+        requests:
+            cpu: "50m"
+            memory: "90Mi" 
+    ports:
+      - name: http
+        containerPort: 3000
+        protocol: TCP
+
+---
+
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: employeeip
+  namespace: microstatic
+
+spec:
+  type: ClusterIP
+  selector:
+    app:  employee
+  ports:
+  - port: 3000
+    # targetPort: 3000
+    name: employeeip
+    protocol: TCP
