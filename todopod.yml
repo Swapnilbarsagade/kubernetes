@@ -2,28 +2,38 @@ apiVersion: v1
 kind: Pod
 metadata:
   name: todo
-  # labels:
-  #   app.kubernetes.io/name: proxy
+  namespace: microstatic
+  labels:
+    app: todo
+
 spec:
   containers:
   - name: todo
     image: swapnil0078/todoapp:latest
+    resources: 
+        requests:
+            cpu: "50m"
+            memory: "90Mi" 
     ports:
-      - containerPort: 80
-        name: 
+      - name: http
+        containerPort: 80
+        protocol: TCP
 
 ---
+
+
 apiVersion: v1
 kind: Service
 metadata:
   name: todolb
+  namespace: microstatic
+
 spec:
+  type: LoadBalancer
   selector:
     app: todo
-    # app.kubernetes.io/name: proxy
-  type: LoadBalancer
   ports:
-  - name: todolb
-    protocol: TCP
-    port: 80
+  - port: 80
     targetPort: 80
+    name: todolb
+    protocol: TCP
