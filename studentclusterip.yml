@@ -1,22 +1,22 @@
 apiVersion: v1
 kind: Pod
 metadata:
-  name: todo
+  name: studentip
   namespace: microstatic
   labels:
-    app: todo
+    app: studentip
 
 spec:
   containers:
-  - name: todo
-    image: swapnil0078/todoapp:latest
+  - name: studentip
+    image: swapnil0078/student:latest
     resources: 
         requests:
             cpu: "50m"
             memory: "90Mi" 
     ports:
       - name: http
-        containerPort: 80
+        containerPort: 8080
         protocol: TCP
 
 ---
@@ -25,15 +25,15 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: todoip
+  name: studentip
   namespace: microstatic
 
 spec:
   type: ClusterIP
   selector:
-    app: todo
+    app: studentip
   ports:
-  - port: 80
-    # targetPort: 80
-    name: todoip
+  - port: 8080
+    # targetPort: 8080
+    name: studentip
     protocol: TCP
