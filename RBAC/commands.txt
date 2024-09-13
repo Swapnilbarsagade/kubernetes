@@ -1,0 +1,13 @@
+
+Creating Namespace-->  
+
+    kubectl create ns micro
+    kubectl get ns 
+
+
+How to check permission give -->
+   kubectl auth can-i --as system:serviceaccount:micro:webapp get pods -n micro
+
+
+
+kubectl auth can-i --as system:serviceaccount:micro:webapp create pods -n kube-system
