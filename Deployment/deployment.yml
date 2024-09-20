@@ -1,9 +1,9 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata: 
-        name: studentapp
+        name: todoapp
         labels:
-            app: studentapp
+            app: todoapp
 spec:
     replicas: 8
     strategy: 
@@ -13,9 +13,9 @@ spec:
           maxUnavailable: 2  # Maximum number of pods that can be unavailable during the update 
     template:
           metadata: 
-                name: studentapp 
+                name: todoapp 
                 labels:
-                      app: studentapp
+                      app: todoapp
           spec:
               containers:
                   - name: http
@@ -26,4 +26,4 @@ spec:
                           protocol: TCP      
     selector:
         matchLabels:
-            app: studentapp
+            app: todoapp
