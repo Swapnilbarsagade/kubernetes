@@ -1,11 +1,11 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata: 
-        name: studentapp
+        name: todoapp
         labels:
-            app: studentapp
+            app: todoapp
 spec:
-    replicas: 14
+    replicas: 8
     strategy: 
         type: RollingUpdate
         rollingUpdate:
@@ -13,17 +13,17 @@ spec:
           maxUnavailable: 2  # Maximum number of pods that can be unavailable during the update 
     template:
           metadata: 
-                name: studentapp 
+                name: todoapp 
                 labels:
-                      app: studentapp
+                      app: todoapp
           spec:
               containers:
                   - name: http
-                    image: nginx:latest
+                    image: swapnil0078/todoapp:latest
                     ports:
                         - name: http
                           containerPort: 80
                           protocol: TCP      
     selector:
         matchLabels:
-            app: studentapp
+            app: todoapp
