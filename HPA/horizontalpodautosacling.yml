@@ -20,11 +20,11 @@ spec:
         command: ["/bin/bash", "-c", "while true; do echo hello world; sleep 10; done"]  # Dummy command to keep the container running
         resources:
           requests:    # Minimum resource requests
-            cpu: "100m"
-            memory: "128Mi"
+            cpu: "25m"
+            memory: "50Mi"
           limits:      # Maximum resource limits
-            cpu: "200m"
-            memory: "256Mi"
+            cpu: "50m"
+            memory: "100Mi"
         ports:
         - containerPort: 80  # Example port (not used here, but you can modify as needed)
 
