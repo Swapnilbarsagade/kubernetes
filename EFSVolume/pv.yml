@@ -4,7 +4,7 @@ metadata:
   name: efs-pv
 spec:
   capacity:
-    storage: 5Gi # This doesn't limit EFS size as it's elastic, but is required
+    storage: 5Gi
   volumeMode: Filesystem
   accessModes:
     - ReadWriteMany
@@ -12,4 +12,4 @@ spec:
   storageClassName: efs-sc
   csi:
     driver: efs.csi.aws.com
-    volumeHandle: fs-0bafa972870bfe368 # Replace with your EFS File System ID
+    volumeHandle: fs-097d7b4660a7fc2f9
