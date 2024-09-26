@@ -1,17 +1,17 @@
 apiVersion: v1
 kind: Pod
 metadata:
-  name: efs-app
+  name: nginx
 spec:
   containers:
-    - name: app
-      image: amazonlinux:2
-      command: ["/bin/sh"]
-      args: ["-c", "while true; do echo $(date) >> /data/out.txt; sleep 5; done"]
-      volumeMounts:
-        - name: efs-storage
-          mountPath: /data
+  - name: nginx
+    image: nginx
+    ports:
+    - containerPort: 80
+    volumeMounts:
+    - name: efs-volume
+      mountPath: /usr/share/nginx/html
   volumes:
-    - name: efs-storage
-      persistentVolumeClaim:
-        claimName: efs-pvc
+  - name: efs-volume
+    persistentVolumeClaim:
+      claimName: efs-pvc
