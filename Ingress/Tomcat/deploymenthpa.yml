@@ -18,7 +18,7 @@ spec:
         spec: 
           containers:
              - name: backendapp
-               image: swapnil0078/student:micro
+               image: tomcat:latest
                ports:
                   - containerPort: 8080
                     protocol: TCP
