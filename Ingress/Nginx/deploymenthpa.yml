@@ -18,7 +18,7 @@ spec:
         spec: 
           containers:
              - name: frontendapp
-               image: nginx:latest
+               image: swapnil0078/todoapp:latest
                ports:
                   - containerPort: 80
                     protocol: TCP
