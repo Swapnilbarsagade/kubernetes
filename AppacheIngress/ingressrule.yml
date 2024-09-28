@@ -4,7 +4,6 @@ metadata:
   name: oneingress
   annotations:
     # Apache-specific annotations (if needed)
-    # Example: force SSL redirection or custom annotations for Apache
     ingress.kubernetes.io/rewrite-target: "/"
 spec:
   ingressClassName: apache
