@@ -1,0 +1,36 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: oneingress
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+    # Enforce HTTPS redirection
+    nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
+    # Optional: Add HSTS (HTTP Strict Transport Security) headers
+    nginx.ingress.kubernetes.io/hsts: "true"
+    nginx.ingress.kubernetes.io/hsts-max-age: "31536000"
+    nginx.ingress.kubernetes.io/hsts-include-subdomains: "true"
+spec:
+  ingressClassName: nginx
+  tls:
+  - hosts:
+    - a5ff7a28718f1475a860473ad6cb800a-1163411906.ap-southeast-1.elb.amazonaws.com
+    secretName: tls-secret  # Name of the secret that stores your SSL certificate
+  rules:
+  - host: a5ff7a28718f1475a860473ad6cb800a-1163411906.ap-southeast-1.elb.amazonaws.com
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: frontendsrv
+            port:
+              number: 80
+      - path: /student
+        pathType: Prefix
+        backend:
+          service:
+            name: backendsrv
+            port:
+              number: 80  # Ensure the backend services run on a secure port if needed
