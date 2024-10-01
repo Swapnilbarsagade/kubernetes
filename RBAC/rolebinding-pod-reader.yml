@@ -2,7 +2,7 @@ apiVersion: rbac.authorization.k8s.io/v1
 kind: RoleBinding
 metadata:
   name: read-pods
-  namespace: default
+  namespace: myapp
 subjects:
 - kind: User  # Could also be "ServiceAccount" or "Group"
   name: swapnil  # Name of the user or service account
