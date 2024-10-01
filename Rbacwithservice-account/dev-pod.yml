@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: dev-kubectl
+  namespace: dev
+spec:
+  containers:
+  - image: bibinwilson/docker-kubectl:latest
+    name: kubectl1
+  serviceAccountName: dev-serviceaccount
