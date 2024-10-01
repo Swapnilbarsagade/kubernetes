@@ -1,7 +1,7 @@
 apiVersion: rbac.authorization.k8s.io/v1
 kind: Role
 metadata:
-  namespace: default  # This Role is limited to the "default" namespace
+  namespace: myapp  # This Role is limited to the "default" namespace
   name: pod-reader
 rules:
 - apiGroups: [""]  # "" indicates the core API group (where Pods live)
