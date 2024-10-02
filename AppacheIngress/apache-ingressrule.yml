@@ -1,24 +1,21 @@
-apiVersion: networking.k8s.io/v1
-kind: Ingress
+apiVersion: apisix.apache.org/v2alpha1
+kind: ApisixRoute
 metadata:
-  name: api-routes
+  name: path-based-route
+  namespace: ingress-apisix
 spec:
-  ingressClassName: apisix
-  rules:
-    - host: local.navendu.me
-      http:
-        paths:
-          - backend:
-              service:
-                name: frontendsrv
-                port:
-                  number: 80
-            path: /
-            pathType: Exact
-          - backend:
-              service:
-                name: backendsrv
-                port:
-                  number: 8080
-            path: /student
-            pathType: Exact
+  http:
+  - name: deployappfront
+    match:
+      paths:
+      - /todo
+    backend:
+      serviceName: deployappfront
+      servicePort: 80
+  - name: deployappback
+    match:
+      paths:
+      - /student
+    backend:
+      serviceName: deployappback
+      servicePort: 8080
