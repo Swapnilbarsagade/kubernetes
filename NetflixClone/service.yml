@@ -4,10 +4,11 @@ metadata:
   name: netflixclone
 
 spec:
-  type: ClusterIP
+  type: LoadBalancer
   selector:
     app:  netflixclone
   ports:
   - port: 80
+    targetPort: 8081
     name: netflixclone
     protocol: TCP
