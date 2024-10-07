@@ -8,6 +8,6 @@ spec:
   selector:
     app:  netflixclone
   ports:
-  - port: 8080
+  - port: 80
     name: netflixclone
     protocol: TCP
