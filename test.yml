@@ -27,4 +27,5 @@ spec:
             #  app: webappreplica
          matchExpressions:
             # - {key: app, operator: In, values: [webappreplica, mobappreplica]}
-            - {key: app, operator: NotIn, values: [mobappreplica, lapappreplica]}
+            # - {key: app, operator: NotIn, values: [mobappreplica, lapappreplica]}
+            - {key: app, operator: Exists}
