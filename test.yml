@@ -25,5 +25,5 @@ spec:
     selector:
          matchLabels:
              app: webappreplica
-         matchExpressions:
-            - {key: app, operator: In, values: [webappreplica, mobappreplica]}
+        #  matchExpressions:
+            # - {key: app, operator: In, values: [webappreplica, mobappreplica]}
