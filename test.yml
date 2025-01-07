@@ -23,7 +23,7 @@ spec:
                 containerPort: 80
                 protocol: TCP
     selector:
-         matchLabels:
-             app: webappreplica
-        #  matchExpressions:
-            # - {key: app, operator: In, values: [webappreplica, mobappreplica]}
+        #  matchLabels:
+            #  app: webappreplica
+         matchExpressions:
+            - {key: app, operator: In, values: [webappreplica, mobappreplica]}
