@@ -4,7 +4,7 @@ Setting up a Kubernetes cluster using **kubeadm** on Ubuntu instances on AWS Clo
 
 ### **1. Set Up AWS EC2 Instances**
 1. **Launch EC2 Instances**:
-   - Use at least two Ubuntu instances:
+   - Use at least two Ubuntu instances  (ubuntu-jammy-22.04) :
      - **Master node**: Handles the Kubernetes control plane.
      - **Worker node(s)**: Runs the application workloads.
    - Instance type: `t2.medium` or higher (for sufficient CPU and memory).
