@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: my-pod
+spec:
+  nodeSelector:
+    disktype: ssd  #scheduler will only assign this pod to a node that has the label
+  containers:
+    - name: my-container
+      image: nginx
+
+# Adding a Label to a Node: kubectl label nodes <node-name> disktype=ssd
+
+
