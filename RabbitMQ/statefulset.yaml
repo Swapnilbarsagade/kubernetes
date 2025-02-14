@@ -25,9 +25,15 @@ spec:
               mountPath: /var/lib/rabbitmq
           env:
             - name: RABBITMQ_DEFAULT_USER
-              value: "user"
+              valueFrom:
+                configMapKeyRef:
+                              name: rabbitmq-config
+                              key: default_user 
             - name: RABBITMQ_DEFAULT_PASS
-              value: "password"
+              valueFrom:
+                configMapKeyRef:
+                              name: rabbitmq-config
+                              key: default_password
       volumes:
         - name: data
           persistentVolumeClaim:

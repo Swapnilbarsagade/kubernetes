@@ -8,5 +8,5 @@ data:
     [rabbitmq_management].
   rabbitmq.conf: |
     loopback_user.guest = false
-    default_user = user
-    default_password = password
+    default_user = swapnil
+    default_password = Kothrud123
