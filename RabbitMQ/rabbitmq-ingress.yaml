@@ -6,7 +6,7 @@ metadata:
     nginx.ingress.kubernetes.io/rewrite-target: /
 spec:
   rules:
-    - host: rabbitmq.example.com
+    - host: rabbitmq.swapnilbdevops.online
       http:
         paths:
           - path: /
